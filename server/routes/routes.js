@@ -43,13 +43,23 @@ router.post('/generateUrl', (req,res) => {
     }    
 });
 
-router.get('/:url', (req,res) => {
+router.get('/:url', (req,res, next) => {
     Url.findOne({_id: req.params.url})
         .then((link) => {
-            res.status(200).redirect(link.url);
-        }, (e) => {
+            if(link){
+                res.status(200).redirect(link.url);
+            }else{
+                next();
+            }
+        })
+        .catch((e) => {
             res.status(400).send(e);
         });
 });
+
+router.use((req,res,next) => {
+    res.status(404).render('404');
+});
+
 
 module.exports = router;
