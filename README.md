@@ -1,10 +1,10 @@
-# Breviare
+# Breviare ✂️ ✌️
 
 Breviare is a minimalist URL shortener made in Javascript (NodeJS / ExpressJS / MongoDB / Ajax).
 
 ![alt text](ignore_it/display.PNG)
 
-## Config
+## Config 💾
 
 Install all the dependencies with
 ```
@@ -20,7 +20,7 @@ config.dbconnection = 'dbconnectionurl';
 
 module.exports = config;
 ```
-## Demo
+## Demo 🔧
 
 You can try it here, please remember that an url shortener deppends on the url and this domain is a free one provided by Heroku.
 
