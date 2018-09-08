@@ -43,7 +43,7 @@ router.post('/generateUrl', (req,res) => {
     }    
 });
 
-router.get('/:url', (req,res, next) => {
+router.get('/:url', (req,res, next) => {    
     Url.findOne({_id: req.params.url})
         .then((link) => {
             if(link){
