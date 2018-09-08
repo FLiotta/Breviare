@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const shortid = require('shortid');
-const ip = require('ip');
 
 var Url = mongoose.model('urls', {
     _id: {
@@ -14,8 +13,7 @@ var Url = mongoose.model('urls', {
         trim: true
     },
     ip: {
-        type: String,
-        default: ip.address
+        type: String
     },
     createdAt: {
         type: Number,

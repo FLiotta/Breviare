@@ -6,8 +6,9 @@ var {Url} = require('../models/Url');
 const validUrl = require('valid-url');
 const ip = require('ip');
 
-router.get('/', (req,res) => {
-    Url.find({ip: ip.address()}).limit(3).sort([['createdAt', -1]])
+
+router.get('/', (req,res) => {    
+    Url.find({ip: req.client.ip}).limit(3).sort([['createdAt', -1]])
         .then((urls) => {
             res.status(200).render('index', {urls: urls});
         })
@@ -25,7 +26,8 @@ router.post('/generateUrl', (req,res) => {
                     res.status(201).send(link._id);
                 }else{
                     const urlmodel = new Url({
-                        url: req.body.url
+                        url: req.body.url,
+                        ip: req.client.ip
                     });
 
                     urlmodel.save().then((newurl) => {

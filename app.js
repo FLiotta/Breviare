@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+const publicIp = require('public-ip');
 
 var app = express();
 const port = process.env.PORT || 3000;
@@ -14,6 +15,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + '/views/partials');
+
+app.use((req,res,next) => {
+    publicIp.v4().then(ip => {
+        req.client.ip = ip;
+        next();
+    });
+});
 
 app.use('/', routes);
 
