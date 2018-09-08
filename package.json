@@ -1,0 +1,24 @@
+{
+  "name": "breviare",
+  "version": "1.0.0",
+  "description": "Url shortener made in js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-formidable": "^1.0.0",
+    "hbs": "^4.0.1",
+    "ip": "^1.1.5",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.1.1",
+    "mongoose": "^5.2.5",
+    "shortid": "^2.2.13",
+    "valid-url": "^1.0.9"
+  }
+}
