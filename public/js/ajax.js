@@ -10,10 +10,10 @@ $("#urlForm").submit(function(e){
 			alert("Url is invalid");
 		}else{
 			$("#lastdiv").css('display', 'flex');
-			$("#last").fadeOut(1000, () => {
+			$("#last").fadeOut(200, () => {
 				$("#last").text(`Brevia.re/${response}`);
 				$("#lasturl").attr("href", response);
-				$("#last").fadeIn(1000);
+				$("#last").fadeIn(200);
 			});		
 			if($("#urls").children().length == 3){
 				$("#urls").children().last().remove();
