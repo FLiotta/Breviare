@@ -20,7 +20,7 @@ config.dbconnection = 'dbconnectionurl';
 
 module.exports = config;
 ```
-## Demo ⚙
+## Demo 🔧
 
 You can try it here, please remember that an url shortener deppends on the url and this domain is a free one provided by Heroku.
 
