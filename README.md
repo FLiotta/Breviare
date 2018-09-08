@@ -2,7 +2,7 @@
 
 Breviare is a minimalist URL shortener made in Javascript (NodeJS / ExpressJS / MongoDB / Ajax).
 
-![alt text](ignore_it/display.PNG)
+![alt text](ignore_it/intro.gif)
 
 ## Config 💾
 
