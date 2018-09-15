@@ -22,6 +22,6 @@ module.exports = config;
 ```
 ## Demo 🔧
 
-You can try it here, please remember that an url shortener deppends on the url and this domain is a free one provided by Heroku.
+You can try it here, please remember that an url shortener depends on the url and this domain is a free one provided by Heroku.
 
 http://breviare.herokuapp.com/
