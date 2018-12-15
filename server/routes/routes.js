@@ -6,7 +6,6 @@ var {Url} = require('../models/Url');
 const validUrl = require('valid-url');
 const ip = require('ip');
 
-
 router.get('/', (req,res) => {    
     Url.find({ip: req.client.ip}).limit(3).sort([['createdAt', -1]])
         .then((urls) => {
@@ -23,7 +22,10 @@ router.post('/generateUrl', (req,res) => {
         Url.findOne({url: url})
             .then((link) => {
                 if(link){
-                    res.status(201).send(link._id);
+                    res.status(201).json({
+                        id: link._id,
+                        new: false
+                    });
                 }else{
                     const urlmodel = new Url({
                         url: req.body.url,
@@ -31,7 +33,10 @@ router.post('/generateUrl', (req,res) => {
                     });
 
                     urlmodel.save().then((newurl) => {
-                        res.status(201).send(newurl._id)
+                        res.status(201).json({
+                            id: newurl._id,
+                            new: true
+                        })
                     }).catch((e) => {
                         res.status(400).send(e);
                     });
@@ -45,13 +50,13 @@ router.post('/generateUrl', (req,res) => {
     }    
 });
 
-router.get('/:url', (req,res, next) => {    
+router.get('/:url', (req,res) => {    
     Url.findOne({_id: req.params.url})
         .then((link) => {
             if(link){
-                res.status(200).redirect(link.url);
+                res.status(200).json(link.url);
             }else{
-                next();
+                res.status(404).json({"error": "Url not found."});
             }
         })
         .catch((e) => {

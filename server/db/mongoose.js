@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 var config = require('../../config');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.dbconnection);
 
+try{
+mongoose.connect(config.dbconnection,{useNewUrlParser: true});
+} catch (e) {
+	console.log(e);
+}
 module.exports = {mongoose};
