@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Router, Route, Switch} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Main from './Main/Main';
 import Redirect from './Redirect/Redirect';
 import e404 from './Error/E404';

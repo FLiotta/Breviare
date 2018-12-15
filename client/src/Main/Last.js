@@ -7,7 +7,7 @@ export default (props) => (
             <hr/>
             <h5 className="text-center animated fadeIn">
                 <Link to={'/' + props.id} style={{color: "#E3AA13"}}>
-          	        brevia.re/{props.id}
+          	        breviare.herokuapp.com/{props.id}
                 </Link>
             </h5>
             <hr/>

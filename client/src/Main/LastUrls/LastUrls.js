@@ -6,7 +6,7 @@ export default (props) => (
 	<div>
 		<div className="row justify-content-md-center animated fadeInUp">
 	        <div className="col-md-6">
-	            <h6 className="text-left" className="url">Latests URLs</h6>                
+	            <h6 className="text-left url">Latests URLs</h6>                
 	        </div>            
 	    </div>
 		<div>
