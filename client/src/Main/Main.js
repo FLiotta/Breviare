@@ -12,10 +12,18 @@ class Main extends Component {
     this.state = {
       urls: [],
       generateInProcess: false,
-      error: undefined
+      error: undefined,
+      new: undefined
     }
     this.generateUrl = this.generateUrl.bind(this);
 
+  }
+
+  componentWillMount(){
+    const localUrls = localStorage.getItem('urls');
+    if(localUrls){
+      this.setState(({urls: JSON.parse(localUrls)}));
+    }
   }
 
   generateUrl(url){
@@ -29,9 +37,13 @@ class Main extends Component {
 
               if(urls.length > 3)
                 urls.shift();
+
+              localStorage.setItem("urls", JSON.stringify(urls));
+
               return {
                 urls,
-                generateInProcess: false
+                generateInProcess: false,
+                new: true
               }
             })
           }          
@@ -46,7 +58,7 @@ class Main extends Component {
       <div style={{paddingTop: "50px"}}>
         <Header />    
         <UrlForm generateUrl={this.generateUrl} generateInProcess={this.state.generateInProcess} />
-        {this.state.urls.length > 0 && (
+        {(this.state.urls.length > 0 && this.state.new )&& (
           <Last id={this.state.urls[this.state.urls.length - 1]} />
         )}
         <LastUrls urls={this.state.urls}/>

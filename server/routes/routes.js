@@ -7,13 +7,7 @@ const validUrl = require('valid-url');
 const ip = require('ip');
 
 router.get('/', (req,res) => {    
-    Url.find({ip: req.client.ip}).limit(3).sort([['createdAt', -1]])
-        .then((urls) => {
-            res.status(200).render('index', {urls: urls});
-        })
-        .catch((e) => {
-            res.status(400).send(e);
-        });
+    res.status(200).render('index');
 });
 
 router.post('/generateUrl', (req,res) => {
