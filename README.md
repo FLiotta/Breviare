@@ -2,24 +2,25 @@
 
 Breviare is a minimalist URL shortener made in Javascript (NodeJS / ExpressJS / MongoDB / ReactJS).
 
-![alt text](ignore_it/intro.gif)
+![alt text](https://i.imgur.com/552dVwc.png)
 
 ## Config 💾
 
 Install all the dependencies with
 ```
 npm install
+npm run server-install
 npm run client-install
 ```
 
-The project was made using mlab as database, so it's recommended to just create an mlab database and paste the link in a config file, but you can also modify the connection file on /server/db and configure it to run on your mongodb client.
+Create a ```config.js``` file on ```/server``` directory
 
 ```javascript
-var config = {};
-
-config.dbconnection = 'dbconnectionurl';
-
-module.exports = config;
+module.exports = {
+	mongodb: {
+		URL: 'MONGODB_URL'
+	}
+};
 ```
 
 ## Run

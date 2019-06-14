@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "client-install": "yarn install --prefix client",
+    "server-install": "yarn install --prefix server",
     "server": "npm start --prefix server",
     "client": "npm run dev-server --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
