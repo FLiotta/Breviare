@@ -1,0 +1,9 @@
+#Page-container {
+	padding-top: $distance * 12;
+}
+
+@media (max-width: 767px) {
+  #Page-container {
+  	padding-top: $distance * 3;
+  }
+}

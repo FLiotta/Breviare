@@ -1,0 +1,23 @@
+{
+  "name": "breviare",
+  "version": "1.0.0",
+  "description": "Url shortener made in js",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-formidable": "^1.2.0",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.10",
+    "public-ip": "^2.5.0",
+    "shortid": "^2.2.14",
+    "valid-url": "^1.0.9"
+  }
+}

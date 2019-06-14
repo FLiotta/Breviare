@@ -1,28 +1,26 @@
 {
-  "name": "breviare",
+  "name": "Breviare",
   "version": "1.0.0",
-  "description": "Url shortener made in js",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node app.js",
-    "server": "nodemon app.js",
-    "client": "npm start --prefix client",
+    "server": "npm start --prefix server",
+    "client": "npm run dev-server --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && nm install --prefix server && npm run build --prefix client"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FLiotta/Breviare.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FLiotta/Breviare/issues"
+  },
+  "homepage": "https://github.com/FLiotta/Breviare#readme",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "express-formidable": "^1.2.0",
-    "method-override": "^3.0.0",
-    "mongodb": "^3.1.13",
-    "mongoose": "^5.4.10",
-    "public-ip": "^2.5.0",
-    "shortid": "^2.2.14",
-    "valid-url": "^1.0.9"
+    "concurrently": "^4.1.0"
   }
 }

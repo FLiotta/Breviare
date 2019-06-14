@@ -1,0 +1,52 @@
+$primary: #ffcb3c;
+$secondary: #204fff;
+$distance: 10px;
+
+body,html {
+	min-height: 100%;
+	max-height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	background-image: url('/img/bg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+#logo_container {
+	padding-top: $distance;
+}
+
+#mobile-logo {
+	padding-top: $distance * 2;
+}
+
+#clipboard {
+	color: $primary;
+	transition: .2s all;
+}
+
+#clipboard:hover {
+	transform: translate(0px,-5px) scale(1.2, 1.2);
+}
+
+#github {
+	width: 95%;
+	position: absolute;
+	bottom: 0px;
+}
+
+#github > p {
+	font-size: 30px;
+}
+
+#github > p > a {
+	color: white;
+}
+
+@import './Form.scss';
+@import './MainPage.scss';
+@import './List';

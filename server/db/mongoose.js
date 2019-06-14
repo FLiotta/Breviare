@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-var config = require('../../config');
+var config = require('../config');
 
 mongoose.Promise = global.Promise;
 
 try{
-mongoose.connect(config.dbconnection,{useNewUrlParser: true});
+	mongoose.connect(config.mongodb.URL ,{useNewUrlParser: true});
 } catch (e) {
 	console.log(e);
 }
-module.exports = {mongoose};
+module.exports = mongoose;

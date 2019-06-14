@@ -1,66 +1,47 @@
+const Url = require('../models/Url');
+const validUrl = require('valid-url');
 const express = require('express');
 var router = express.Router();
-const {mongoose} = require('../db/mongoose');
-const shortid = require('shortid');
-var {Url} = require('../models/Url');
-const validUrl = require('valid-url');
-const ip = require('ip');
 
-router.get('/', (req,res) => {    
-    res.status(200).render('index');
-});
+router.post('/generateurl', (req,res) => {
+    let {url} = req.body;
+    let {ip} = req.client;
 
-router.post('/generateUrl', (req,res) => {
-    let url = req.body.url;
-    if(validUrl.isUri(url)){
-        Url.findOne({url: url})
-            .then((link) => {
-                if(link){
-                    res.status(201).json({
-                        id: link._id,
-                        new: false
-                    });
-                }else{
-                    const urlmodel = new Url({
-                        url: req.body.url,
-                        ip: req.client.ip
-                    });
+    if(!validUrl.isUri(url))
+        res.status(418).send("InvalidURL");
 
-                    urlmodel.save().then((newurl) => {
+    Url.findOne({url})
+        .then(link => {
+            if(link)
+                res.status(201).json({
+                    id: link._id,
+                    new: false
+                })
+            else{
+                new Url({url,ip})
+                    .save()
+                    .then(newUrl => 
                         res.status(201).json({
-                            id: newurl._id,
+                            id: newUrl._id,
                             new: true
-                        })
-                    }).catch((e) => {
-                        res.status(400).send(e);
-                    });
-                }
-            })
-            .catch((e) => {
-                res.status(400).send(e);
-            });
-    }else{
-    	res.status(418).send("InvalidURL");
-    }    
+                        }))
+                    .catch(e => res.status(400).send(e));
+            }
+        })
+        .catch(e => res.status(400).send(e));    
 });
 
 router.get('/:url', (req,res) => {    
-    Url.findOne({_id: req.params.url})
-        .then((link) => {
-            if(link){
+    const {url: id} = req.params;
+
+    Url.findById(id)
+        .then(link => {
+            if(link)
                 res.status(200).json(link.url);
-            }else{
-                res.status(404).json({"error": "Url not found."});
-            }
+            else
+                res.status(404).json({error: "Url not found.", code: 404});
         })
-        .catch((e) => {
-            res.status(400).send(e);
-        });
+        .catch((e) => res.status(400).send(e));
 });
-
-router.use((req,res,next) => {
-    res.status(404).render('404');
-});
-
 
 module.exports = router;

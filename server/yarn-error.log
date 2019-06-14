@@ -1,0 +1,53 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\test\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\xampp\php;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\test\AppData\Roaming\npm;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.16.0
+
+Platform: 
+  win32 ia32
+
+Trace: 
+  SyntaxError: C:\Users\test\Desktop\Breviare\server\package.json: Unexpected token } in JSON at position 162
+      at JSON.parse (<anonymous>)
+      at C:\Users\test\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\test\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:304:30)
+      at C:\Users\test\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "breviare",
+    "version": "1.0.0",
+    "description": "Url shortener made in js",
+    "main": "app.js",
+    "scripts": {
+      "start": "nodemon server.js",
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt-nodejs": "0.0.3",
+      "body-parser": "^1.18.3",
+      "express": "^4.16.4",
+      "express-formidable": "^1.2.0",
+      "method-override": "^3.0.0",
+      "mongodb": "^3.1.13",
+      "mongoose": "^5.4.10",
+      "public-ip": "^2.5.0",
+      "shortid": "^2.2.14",
+      "valid-url": "^1.0.9"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
