@@ -7,7 +7,7 @@ export const generateUrl = (url) => {
 	return dispatch => {
 		dispatch(setLoading(true))
 
-		axios.post('http://localhost:5000/api/generateurl', {url: url})
+		axios.post('/api/generateurl', {url: url})
 		.then(res => {
 			dispatch({
 				type: GENERATE_URL,

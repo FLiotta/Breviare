@@ -7,12 +7,12 @@ class RedirectPage extends Component {
 	}
 
 	componentDidMount(){
-		axios.get(`http://localhost:5000/api/${this.props.match.params.id}`)
+		axios.get(`/api/${this.props.match.params.id}`)
 			.then((res) => {
 				window.location.href = res.data;
 				console.log("es");
 			})
-			.catch(e => window.location.href = '/404');
+			.catch(e => this.props.history.push('/404'));
 	}
 
 	render(){

@@ -7,9 +7,10 @@
     "client-install": "yarn install --prefix client",
     "server-install": "yarn install --prefix server",
     "server": "npm start --prefix server",
+    "start": "npm run server",
     "client": "npm run dev-server --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && nm install --prefix server && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm install --prefix server && npm run build --prefix client"
   },
   "repository": {
     "type": "git",

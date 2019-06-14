@@ -15,6 +15,7 @@
     "express-formidable": "^1.2.0",
     "method-override": "^3.0.0",
     "mongodb": "^3.1.13",
+    "nodemon": "^1.19.1",
     "mongoose": "^5.4.10",
     "public-ip": "^2.5.0",
     "shortid": "^2.2.14",

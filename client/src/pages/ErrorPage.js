@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default () => (
 	<div id="Page-container">
@@ -10,7 +11,11 @@ export default () => (
         </div> 
         <div className="row justify-content-md-center" style={{paddingBottom: "1%"}}>
             <div className="col-2">
-                <a href="/"><button className="btn btn-warning btn-block animated fadeIn" style={{color: "white"}}>Take me back</button></a>
+                <Link to="/">
+                    <button className="btn btn-warning btn-block animated fadeIn" style={{color: "white"}}>
+                        Take me back
+                    </button>
+                </Link>
             </div>
         </div>
 	</div>
